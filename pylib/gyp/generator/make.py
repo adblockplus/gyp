@@ -1831,7 +1831,7 @@ $(obj).$(TOOLSET)/$(TARGET)/%%.o: $(obj)/%%%s FORCE_DO_CMD
           default_cpp_ext = ext
     self.WriteLn('LOCAL_CPP_EXTENSION := ' + default_cpp_ext)
 
-    self.WriteList(map(self.Absolutify, filter(Compilable, all_sources)),
+    self.WriteList(map(Sourceify, map(self.Absolutify, filter(Compilable, all_sources))),
                    'LOCAL_SRC_FILES')
 
     # Filter out those which do not match prefix and suffix and produce
